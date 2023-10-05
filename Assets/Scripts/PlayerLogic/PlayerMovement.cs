@@ -9,6 +9,8 @@ namespace PlayerLogic
     {
         [SerializeField] 
         private Transform _playerGfxTransform;
+        [SerializeField]
+        private Transform _hand;
         
         [Inject]
         private PlayerInputService _playerInputService = null!;
@@ -31,29 +33,43 @@ namespace PlayerLogic
                 return;
             }
 
-            Move(_playerInputService.MoveDirection, _playerDescriptor.MoveSpeed);
+            _moveDirection = new Vector3(_playerInputService.MoveDirection.x, _playerInputService.MoveDirection.y, 0);
+            
+            Move(_playerDescriptor.MoveSpeed);
             RotatePlayer();
         }
 
-        private void RotatePlayer()
+        private void Move(float moveSpeed)
         {
-            if (_moveDirection.magnitude > 0)
-            {
-                _playerGfxTransform.up = _moveDirection;
-            }
-        }
-
-        private void Move(Vector3 moveDirection, float moveSpeed)
-        {
-            _moveDirection = transform.right * moveDirection.x +
-                             transform.up * moveDirection.y;
-
             if (_moveDirection.magnitude > 1)
             {
                 _moveDirection.Normalize();
             }
 
             _rigidbody.MovePosition(transform.position + _moveDirection * moveSpeed * Time.fixedDeltaTime);
+        }
+
+        private void RotatePlayer()
+        {
+            if (_moveDirection.magnitude > 0)
+            {
+                if (_moveDirection.x < 0)
+                {
+                    _playerGfxTransform.localScale = new Vector3(-1, 1, 1);
+                }
+                else
+                {
+                    _playerGfxTransform.localScale = new Vector3(1, 1, 1);
+                }
+
+                MoveHandInMoveDirection();
+            }
+        }
+
+        private void MoveHandInMoveDirection()
+        {
+            float angle = Mathf.Atan2(_moveDirection.y, Mathf.Abs(_moveDirection.x)) * Mathf.Rad2Deg;
+            _hand.rotation = Quaternion.Euler(0, 0, angle * Mathf.Sign(_moveDirection.x));
         }
     }
 }
