@@ -4,13 +4,13 @@ namespace EnemyLogic
 {
     public class Enemy : MonoBehaviour
     {
-        private float _hp = 100;
-        
+        public float HP { get; private set; } = 100;
+
         public void TakeDamage(float damage)
         {
-            _hp -= damage;
+            HP -= damage;
             
-            if (_hp <= 0)
+            if (HP <= 0)
             {
                 Die();
             }

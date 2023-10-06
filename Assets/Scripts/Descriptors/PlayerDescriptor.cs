@@ -10,5 +10,6 @@ namespace Descriptors
         public float MoveSpeed;
         public float Damage;
         public float TimeBetweenShots;
+        public float ShootTargetRadius;
     }
 }
