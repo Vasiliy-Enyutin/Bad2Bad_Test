@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7031816425307465634, guid: 8f4628782c776764688013455bc01681, type: 3}
   MoveSpeed: 3
+  Damage: 10
+  TimeBetweenShots: 0.2

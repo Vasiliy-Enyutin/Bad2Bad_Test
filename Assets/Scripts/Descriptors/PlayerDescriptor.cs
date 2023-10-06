@@ -8,5 +8,7 @@ namespace Descriptors
     {
         public Player Prefab = null!;
         public float MoveSpeed;
+        public float Damage;
+        public float TimeBetweenShots;
     }
 }

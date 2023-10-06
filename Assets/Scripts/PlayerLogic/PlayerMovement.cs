@@ -18,8 +18,10 @@ namespace PlayerLogic
         private PlayerDescriptor _playerDescriptor = null!;
 
         private Rigidbody2D _rigidbody = null!;
-        
+
         private Vector3 _moveDirection;
+        
+        public bool FacingRight { get; private set; } = true;
 
         private void Awake()
         {
@@ -53,19 +55,21 @@ namespace PlayerLogic
         {
             if (_moveDirection.magnitude > 0)
             {
-                if (_moveDirection.x < 0)
+                if (_moveDirection.x < 0 && FacingRight)
                 {
+                    FacingRight = false;
                     _playerGfxTransform.localScale = new Vector3(-1, 1, 1);
                 }
-                else
+                else if (_moveDirection.x > 0 && !FacingRight)
                 {
+                    FacingRight = true;
                     _playerGfxTransform.localScale = new Vector3(1, 1, 1);
                 }
 
                 MoveHandInMoveDirection();
             }
         }
-
+        
         private void MoveHandInMoveDirection()
         {
             float angle = Mathf.Atan2(_moveDirection.y, Mathf.Abs(_moveDirection.x)) * Mathf.Rad2Deg;
