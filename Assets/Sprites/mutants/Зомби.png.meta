@@ -18,7 +18,7 @@ TextureImporter:
       213: -4031785122171737557
     second: "\u0417\u043E\u043C\u0431\u0438_4"
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,7 +62,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,6 +78,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -283,10 +284,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       "\u0417\u043E\u043C\u0431\u0438_0": 7117401074472609237
-      "\u0417\u043E\u043C\u0431\u0438_4": -4031785122171737557
       "\u0417\u043E\u043C\u0431\u0438_1": -9077934328391064956
       "\u0417\u043E\u043C\u0431\u0438_2": -4436161977106058220
       "\u0417\u043E\u043C\u0431\u0438_3": 2004682317781361897
+      "\u0417\u043E\u043C\u0431\u0438_4": -4031785122171737557
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
