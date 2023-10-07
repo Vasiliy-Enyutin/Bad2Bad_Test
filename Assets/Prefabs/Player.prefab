@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 7031816425307465634}
   - component: {fileID: 7441208693882127499}
   - component: {fileID: -3482519033273836953}
+  - component: {fileID: 6784128481676019522}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -395,7 +396,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &2277681734905434155
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -453,6 +454,18 @@ MonoBehaviour:
   _firePoint: {fileID: 7670562239194217625}
   _impactEffect: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   _tracerBulletEffect: {fileID: 5605157687609738118}
+--- !u!114 &6784128481676019522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277681734905434154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea53933b678e14a41afd8073b1b015bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4788397845404658000
 GameObject:
   m_ObjectHideFlags: 0
