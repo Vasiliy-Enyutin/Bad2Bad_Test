@@ -6,14 +6,14 @@ namespace EnemyLogic
 {
     public class EnemyCollisionDetector : MonoBehaviour
     {
-        public event Action OnSawPlayer;
+        public event Action OnPlayerDetected;
         public event Action OnLostPlayer;
         
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.TryGetComponent(out Player _))
             {
-                OnSawPlayer?.Invoke();
+                OnPlayerDetected?.Invoke();
             }
         }
 

@@ -19,13 +19,13 @@ namespace EnemyLogic
 
         private void OnEnable()
         {
-            _enemyCollisionDetector.OnSawPlayer += EnablePathfinder;
+            _enemyCollisionDetector.OnPlayerDetected += EnablePathfinder;
             _enemyCollisionDetector.OnLostPlayer += DisablePathfinder;
         }
 
         private void OnDisable()
         {
-            _enemyCollisionDetector.OnSawPlayer -= EnablePathfinder;
+            _enemyCollisionDetector.OnPlayerDetected -= EnablePathfinder;
             _enemyCollisionDetector.OnLostPlayer -= DisablePathfinder;
         }
 
