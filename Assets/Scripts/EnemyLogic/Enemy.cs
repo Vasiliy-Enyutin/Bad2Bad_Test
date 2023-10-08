@@ -1,27 +1,21 @@
 ﻿using System;
-using Pathfinding;
+using Descriptors;
 using UnityEngine;
 
 namespace EnemyLogic
 {
-    [RequireComponent(typeof(AIDestinationSetter))]
     public class Enemy : MonoBehaviour
     {
-        private AIDestinationSetter _destinationSetter = null!;
-        
         public float CurrentHp { get; private set; }
+        
+        public EnemyDescriptor EnemyDescriptor { get; private set; }
         
         public event Action OnDamageReceived;
 
-        private void Awake()
+        public void Init(EnemyDescriptor enemyDescriptor)
         {
-            _destinationSetter = GetComponent<AIDestinationSetter>();
-        }
-
-        public void Init(Transform playerTransform, float hp)
-        {
-            _destinationSetter.target = playerTransform;
-            CurrentHp = hp;
+            CurrentHp = enemyDescriptor.Hp;
+            EnemyDescriptor = enemyDescriptor;
         }
 
         public void TakeDamage(float damage)

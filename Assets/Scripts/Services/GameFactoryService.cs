@@ -47,7 +47,7 @@ namespace Services
                 availablePositions.RemoveAt(randomIndex);
 
                 Enemy enemy = _assetProviderService.CreateAsset<Enemy>(_enemyDescriptor.Enemy, spawnPosition);
-                enemy.Init(Player.transform, _enemyDescriptor.Hp);
+                enemy.Init(_enemyDescriptor);
                 Enemies.Add(enemy);
             }
         }

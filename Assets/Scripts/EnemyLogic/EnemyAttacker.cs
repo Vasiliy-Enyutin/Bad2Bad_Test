@@ -9,15 +9,15 @@ namespace EnemyLogic
 {
     [RequireComponent(typeof(EnemyCollisionDetector))]
     [RequireComponent(typeof(EnemyAnimationController))]
+    [RequireComponent(typeof(Enemy))]
     public class EnemyAttacker : MonoBehaviour
     {
         [Inject]
-        private GameFactoryService _gameFactoryService;
-        [Inject]
-        private EnemyDescriptor _enemyDescriptor;
+        private GameFactoryService _gameFactoryService = null!;
         
         private EnemyCollisionDetector _enemyCollisionDetector;
         private EnemyAnimationController _enemyAnimationController;
+        private EnemyDescriptor _enemyDescriptor = null!;
 
         private bool _isNextToPlayer = false;
         private bool _isAttacking = false;
@@ -29,6 +29,11 @@ namespace EnemyLogic
             
             _enemyCollisionDetector.OnPlayerCollisionEnter += () => _isNextToPlayer = true;
             _enemyCollisionDetector.OnPlayerCollisionExit += () => _isNextToPlayer = false;
+        }
+
+        private void Start()
+        {
+            _enemyDescriptor = GetComponent<Enemy>().EnemyDescriptor;
         }
 
         private void Update()
