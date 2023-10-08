@@ -7,6 +7,7 @@ namespace PlayerLogic
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(TargetSearcher))]
+    [RequireComponent(typeof(Player))]
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] 
@@ -16,20 +17,20 @@ namespace PlayerLogic
         
         [Inject]
         private PlayerInputService _playerInputService = null!;
-        [Inject]
-        private PlayerDescriptor _playerDescriptor = null!;
-
+        
         private Rigidbody2D _rigidbody = null!;
         private TargetSearcher _targetSearcher = null!;
+        private PlayerDescriptor _playerDescriptor = null!;
 
         private Vector3 _moveDirection;
         
         public bool FacingRight { get; private set; } = true;
 
-        private void Awake()
+        private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _targetSearcher = GetComponent<TargetSearcher>();
+            _playerDescriptor = GetComponent<Player>().PlayerDescriptor;
         }
 
         private void FixedUpdate()

@@ -1,4 +1,5 @@
 ﻿using System;
+using Descriptors;
 using UnityEngine;
 
 namespace PlayerLogic
@@ -7,13 +8,16 @@ namespace PlayerLogic
     {
         public float CurrentHp { get; private set; }
         
+        public PlayerDescriptor PlayerDescriptor { get; private set; }
+        
         public event Action OnDestroy;
 
         public event Action OnDamageReceived; 
 
-        public void Init(float hp)
+        public void Init(PlayerDescriptor playerDescriptor)
         {
-            CurrentHp = hp;
+            CurrentHp = playerDescriptor.Hp;
+            PlayerDescriptor = playerDescriptor;
         }
         
         public void TakeDamage(float damage)

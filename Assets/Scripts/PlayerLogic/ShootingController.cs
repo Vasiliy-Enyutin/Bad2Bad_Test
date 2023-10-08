@@ -7,6 +7,8 @@ using Zenject;
 
 namespace PlayerLogic
 {
+    [RequireComponent(typeof(Player))]
+    [RequireComponent(typeof(PlayerMovement))]
     public class ShootingController : MonoBehaviour
     {
         [SerializeField]
@@ -17,16 +19,16 @@ namespace PlayerLogic
         private LineRenderer _tracerBulletEffect;
         
         [Inject]
-        private PlayerInputService _playerInputService;
-        [Inject]
-        private PlayerDescriptor _playerDescriptor;
+        private PlayerInputService _playerInputService = null!;
         
-        private PlayerMovement _playerMovement;
+        private PlayerDescriptor _playerDescriptor = null!;
+        private PlayerMovement _playerMovement = null!;
 
         private float _shotTimer = 0f;
 
-        private void Awake()
+        private void Start()
         {
+            _playerDescriptor = GetComponent<Player>().PlayerDescriptor;
             _playerMovement = GetComponent<PlayerMovement>();
         }
 

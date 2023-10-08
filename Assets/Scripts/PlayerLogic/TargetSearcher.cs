@@ -2,16 +2,20 @@ using System.Linq;
 using Descriptors;
 using EnemyLogic;
 using UnityEngine;
-using Zenject;
 
 namespace PlayerLogic
 {
+    [RequireComponent(typeof(Player))]
     public class TargetSearcher : MonoBehaviour
     {
-        [Inject]
         private PlayerDescriptor _playerDescriptor = null!;
         
         public Enemy TargetEnemy { get; private set; }
+
+        private void Start()
+        {
+            _playerDescriptor = GetComponent<Player>().PlayerDescriptor;
+        }
 
         private void Update()
         {
