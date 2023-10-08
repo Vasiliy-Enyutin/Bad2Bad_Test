@@ -15,15 +15,11 @@ namespace PlayerLogic
         private GameObject _impactEffect;
         [SerializeField]
         private LineRenderer _tracerBulletEffect;
-
-        [Inject]
-        private AssetProviderService _assetProvider;
+        
         [Inject]
         private PlayerInputService _playerInputService;
         [Inject]
         private PlayerDescriptor _playerDescriptor;
-
-        private const float MAX_SHOOTING_DISTANCE = 10;
         
         private PlayerMovement _playerMovement;
 
@@ -49,7 +45,6 @@ namespace PlayerLogic
         {
             Vector3 shootDirection = _playerMovement.FacingRight ? _firePoint.right : -_firePoint.right;
             RaycastHit2D hit = Physics2D.Raycast(_firePoint.position, shootDirection);
-            Debug.Log(hit.point);
 
             if (TryGetEnemy(hit, out Enemy enemy))
             {
@@ -62,8 +57,8 @@ namespace PlayerLogic
             else
             {
                 _tracerBulletEffect.SetPosition(0, _firePoint.position);
-                _tracerBulletEffect.SetPosition(1, _firePoint.position + shootDirection * MAX_SHOOTING_DISTANCE);
-                AddImpactEffect(_firePoint.position + shootDirection * MAX_SHOOTING_DISTANCE);
+                _tracerBulletEffect.SetPosition(1, _firePoint.position + shootDirection * _playerDescriptor.MaxShootingDistance);
+                AddImpactEffect(_firePoint.position + shootDirection * _playerDescriptor.MaxShootingDistance);
             }
 
             _tracerBulletEffect.enabled = true;
@@ -86,33 +81,6 @@ namespace PlayerLogic
     
             return false;
         } 
-        
-        // private bool TryGetEnemy(RaycastHit2D hit, out Enemy enemy)
-        // {
-        //     enemy = null;
-        //     float currentDistance = 0f;
-        //
-        //     while (hit && currentDistance < MAX_SHOOTING_DISTANCE)
-        //     {
-        //         Debug.Log(hit.collider.isTrigger);
-        //         if (!hit.collider.isTrigger)
-        //         {
-        //             Debug.Log("NOT TRIGGET");
-        //             enemy = hit.collider.GetComponent<Enemy>();
-        //             if (enemy != null)
-        //             {
-        //                 return true;
-        //             }
-        //         }
-        //
-        //         currentDistance += hit.distance;
-        //
-        //         // Если попали в триггер коллайдер, продолжаем луч дальше
-        //         hit = Physics2D.Raycast(hit.point + hit.normal * 0.01f, hit.point + hit.normal * MAX_SHOOTING_DISTANCE);
-        //     }
-        //
-        //     return false;
-        // }
 
         private void AddImpactEffect(Vector3 position)
         {

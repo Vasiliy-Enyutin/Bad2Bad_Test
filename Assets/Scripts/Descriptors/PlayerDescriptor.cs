@@ -12,5 +12,6 @@ namespace Descriptors
         public float Damage;
         public float TimeBetweenShots;
         public float ShootTargetRadius;
+        public float MaxShootingDistance;
     }
 }
