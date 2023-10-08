@@ -15,5 +15,6 @@ MonoBehaviour:
   Enemy: {fileID: -4987517850447538172, guid: 44101847e33984d4da35fdea0fa78902, type: 3}
   Hp: 100
   EnemiesNumber: 3
-  MoveSpeed: 3
-  PursuitDistance: 0
+  TimeBetweenAttacks: 2
+  TimeBeforeDamage: 0.5
+  Damage: 10

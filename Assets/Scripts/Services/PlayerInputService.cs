@@ -2,7 +2,7 @@ using Joystick_Pack.Scripts.Joysticks;
 using UI;
 using UnityEngine;
 
-namespace PlayerLogic
+namespace Services
 {
     public class PlayerInputService : MonoBehaviour
     {

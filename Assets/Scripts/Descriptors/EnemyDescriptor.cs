@@ -9,7 +9,8 @@ namespace Descriptors
         public Enemy Enemy;
         public float Hp;
         public int EnemiesNumber;
-        public float MoveSpeed;
-        public float PursuitDistance;
+        public float TimeBetweenAttacks;
+        public float TimeBeforeDamage;
+        public float Damage;
     }
 }

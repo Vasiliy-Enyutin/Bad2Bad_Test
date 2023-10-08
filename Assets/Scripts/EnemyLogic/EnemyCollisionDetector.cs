@@ -8,6 +8,9 @@ namespace EnemyLogic
     {
         public event Action OnPlayerDetected;
         public event Action OnLostPlayer;
+
+        public event Action OnPlayerCollisionEnter;
+        public event Action OnPlayerCollisionExit;
         
         private void OnTriggerEnter2D(Collider2D col)
         {
@@ -22,6 +25,22 @@ namespace EnemyLogic
             if (other.TryGetComponent(out Player _))
             {
                 OnLostPlayer?.Invoke();
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.collider.TryGetComponent(out Player _))
+            {
+                OnPlayerCollisionEnter?.Invoke();
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            if (other.collider.TryGetComponent(out Player _))
+            {
+                OnPlayerCollisionExit?.Invoke();
             }
         }
     }
