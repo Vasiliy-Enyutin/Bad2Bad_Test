@@ -1,5 +1,4 @@
 ﻿using Pathfinding;
-using PlayerLogic;
 using UnityEngine;
 
 namespace EnemyLogic
@@ -9,7 +8,6 @@ namespace EnemyLogic
     {
         private AIDestinationSetter _destinationSetter = null!;
         
-        private Transform _playerTransform;
         private float _hp;
 
         private void Awake()
@@ -19,13 +17,8 @@ namespace EnemyLogic
 
         public void Init(Transform playerTransform, float hp)
         {
-            _playerTransform = playerTransform;
+            _destinationSetter.target = playerTransform;
             _hp = hp;
-        }
-
-        private void Start()
-        {
-            _destinationSetter.target = FindObjectOfType<PlayerMovement>().transform;
         }
 
         public void TakeDamage(float damage)

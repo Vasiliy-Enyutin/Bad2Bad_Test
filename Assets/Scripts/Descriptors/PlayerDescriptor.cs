@@ -7,6 +7,7 @@ namespace Descriptors
     public class PlayerDescriptor : ScriptableObject
     {
         public Player Prefab = null!;
+        public float Hp;
         public float MoveSpeed;
         public float Damage;
         public float TimeBetweenShots;

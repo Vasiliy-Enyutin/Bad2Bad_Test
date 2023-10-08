@@ -28,6 +28,7 @@ namespace Services
         public void CreatePlayer()
         {
             Player = _assetProviderService.CreateAsset<Player>(_playerDescriptor.Prefab, _playerLocationDescriptor.InitialPlayerPositionPoint);
+            Player.Init(_playerDescriptor.Hp);
         }
 
         public void CreateEnemies(List<Vector3> cellPositions)
