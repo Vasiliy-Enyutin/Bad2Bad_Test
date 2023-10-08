@@ -1,4 +1,5 @@
-﻿using Pathfinding;
+﻿using System;
+using Pathfinding;
 using UnityEngine;
 
 namespace EnemyLogic
@@ -8,7 +9,9 @@ namespace EnemyLogic
     {
         private AIDestinationSetter _destinationSetter = null!;
         
-        private float _hp;
+        public float CurrentHp { get; private set; }
+        
+        public event Action OnDamageReceived;
 
         private void Awake()
         {
@@ -18,14 +21,15 @@ namespace EnemyLogic
         public void Init(Transform playerTransform, float hp)
         {
             _destinationSetter.target = playerTransform;
-            _hp = hp;
+            CurrentHp = hp;
         }
 
         public void TakeDamage(float damage)
         {
-            _hp -= damage;
+            CurrentHp -= damage;
+            OnDamageReceived?.Invoke();
             
-            if (_hp <= 0)
+            if (CurrentHp <= 0)
             {
                 Die();
             }

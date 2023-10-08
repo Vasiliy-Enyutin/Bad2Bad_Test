@@ -5,20 +5,23 @@ namespace PlayerLogic
 {
     public class Player : MonoBehaviour
     {
-        private float _hp;
+        public float CurrentHp { get; private set; }
         
         public event Action OnDestroy;
 
+        public event Action OnDamageReceived; 
+
         public void Init(float hp)
         {
-            _hp = hp;
+            CurrentHp = hp;
         }
         
         public void TakeDamage(float damage)
         {
-            _hp -= damage;
+            CurrentHp -= damage;
+            OnDamageReceived?.Invoke();
             
-            if (_hp <= 0)
+            if (CurrentHp <= 0)
             {
                 Die();
             }
