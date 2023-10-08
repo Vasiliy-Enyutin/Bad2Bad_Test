@@ -17,4 +17,5 @@ MonoBehaviour:
   MoveSpeed: 3
   Damage: 10
   TimeBetweenShots: 0.2
-  ShootTargetRadius: 5
+  ShootTargetRadius: 6
+  MaxShootingDistance: 6
