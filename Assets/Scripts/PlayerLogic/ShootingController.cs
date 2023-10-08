@@ -23,6 +23,8 @@ namespace PlayerLogic
         [Inject]
         private PlayerDescriptor _playerDescriptor;
 
+        private const float MAX_SHOOTING_DISTANCE = 10;
+        
         private PlayerMovement _playerMovement;
 
         private float _shotTimer = 0f;
@@ -47,28 +49,74 @@ namespace PlayerLogic
         {
             Vector3 shootDirection = _playerMovement.FacingRight ? _firePoint.right : -_firePoint.right;
             RaycastHit2D hit = Physics2D.Raycast(_firePoint.position, shootDirection);
+            Debug.Log(hit.point);
 
-            if (hit)
+            if (TryGetEnemy(hit, out Enemy enemy))
             {
-                if (hit.collider.TryGetComponent(out Enemy enemy))
-                {
-                    enemy.TakeDamage(_playerDescriptor.Damage);
-                }
-
-                Instantiate(_impactEffect, hit.point, Quaternion.identity);
+                enemy.TakeDamage(_playerDescriptor.Damage);
                 
                 _tracerBulletEffect.SetPosition(0, _firePoint.position);
                 _tracerBulletEffect.SetPosition(1, hit.point);
+                AddImpactEffect(hit.point);
             }
             else
             {
                 _tracerBulletEffect.SetPosition(0, _firePoint.position);
-                _tracerBulletEffect.SetPosition(1, _firePoint.position + shootDirection * 10);
+                _tracerBulletEffect.SetPosition(1, _firePoint.position + shootDirection * MAX_SHOOTING_DISTANCE);
+                AddImpactEffect(_firePoint.position + shootDirection * MAX_SHOOTING_DISTANCE);
             }
 
             _tracerBulletEffect.enabled = true;
             yield return new WaitForSeconds(0.02f);
             _tracerBulletEffect.enabled = false;
+        }
+        
+        private bool TryGetEnemy(RaycastHit2D hit, out Enemy enemy)
+        {
+            enemy = null;
+    
+            if (hit)
+            {
+                enemy = hit.collider.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    return true;
+                }
+            }
+    
+            return false;
+        } 
+        
+        // private bool TryGetEnemy(RaycastHit2D hit, out Enemy enemy)
+        // {
+        //     enemy = null;
+        //     float currentDistance = 0f;
+        //
+        //     while (hit && currentDistance < MAX_SHOOTING_DISTANCE)
+        //     {
+        //         Debug.Log(hit.collider.isTrigger);
+        //         if (!hit.collider.isTrigger)
+        //         {
+        //             Debug.Log("NOT TRIGGET");
+        //             enemy = hit.collider.GetComponent<Enemy>();
+        //             if (enemy != null)
+        //             {
+        //                 return true;
+        //             }
+        //         }
+        //
+        //         currentDistance += hit.distance;
+        //
+        //         // Если попали в триггер коллайдер, продолжаем луч дальше
+        //         hit = Physics2D.Raycast(hit.point + hit.normal * 0.01f, hit.point + hit.normal * MAX_SHOOTING_DISTANCE);
+        //     }
+        //
+        //     return false;
+        // }
+
+        private void AddImpactEffect(Vector3 position)
+        {
+            Instantiate(_impactEffect, position, Quaternion.identity);
         }
     }
 }

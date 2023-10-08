@@ -1,3 +1,4 @@
+using System.Linq;
 using Descriptors;
 using EnemyLogic;
 using UnityEngine;
@@ -19,8 +20,11 @@ namespace PlayerLogic
         
         private void UpdateTargetEnemy()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _playerDescriptor.ShootTargetRadius);
-
+            // Получаем все коллайдеры в радиусе, затем фильтруем только обычные коллайдеры
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _playerDescriptor.ShootTargetRadius)
+                .Where(collider => !collider.isTrigger)
+                .ToArray();
+            
             if (colliders.Length > 0)
             {
                 float closestDistance = float.MaxValue;
