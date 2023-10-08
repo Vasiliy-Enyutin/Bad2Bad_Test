@@ -10,8 +10,8 @@ namespace Descriptors
         private PlayerDescriptor _playerDescriptor = null!;
         [SerializeField]
         private PlayerLocationDescriptor _playerLocationDescriptor = null!;
-        // [SerializeField] 
-        // private EnemyDescriptor _enemyDescriptor;
+        [SerializeField] 
+        private EnemyDescriptor _enemyDescriptor;
         // [SerializeField]
         // private UiDescriptor _uiDescriptor;
 		
@@ -19,7 +19,7 @@ namespace Descriptors
         {
             Container.BindInstance(_playerDescriptor).AsSingle();
             Container.BindInstance(_playerLocationDescriptor).AsSingle();
-            // Container.BindInstance(_enemyDescriptor).AsSingle();
+            Container.BindInstance(_enemyDescriptor).AsSingle();
             // Container.BindInstance(_uiDescriptor).AsSingle();
         }
     }

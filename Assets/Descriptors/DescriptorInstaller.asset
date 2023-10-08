@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerDescriptor: {fileID: 11400000, guid: ad6e7296ec4fdd041b9e8c83eedf4da3, type: 2}
   _playerLocationDescriptor: {fileID: 11400000, guid: 60cdb63d34e88c64aa1ed8752b2ec63d, type: 2}
+  _enemyDescriptor: {fileID: 11400000, guid: b76d339fdaf7770428829c1e5c700d65, type: 2}
