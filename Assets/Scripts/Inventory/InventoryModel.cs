@@ -30,22 +30,12 @@ namespace Inventory
 
         public void RemoveItem(int itemId)
         {
-            foreach (GameItemInfo gameItemInfo in GameItemsInfo)
-            {
-                Debug.Log(gameItemInfo.ItemName);
-            }
-            
             for (int i = GameItemsInfo.Count - 1; i >= 0; i--)
             {
                 if (GameItemsInfo[i].Id == itemId)
                 {
                     GameItemsInfo.RemoveAt(i);
                 }
-            }
-            
-            foreach (GameItemInfo gameItemInfo in GameItemsInfo)
-            {
-                Debug.Log(gameItemInfo.ItemName);
             }
         }
     }
