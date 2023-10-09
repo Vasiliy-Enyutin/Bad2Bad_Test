@@ -9,13 +9,13 @@ namespace Inventory
         [SerializeField]
         private List<ItemButton> _itemButtons = null!;
 
-        public event Action<int> OnRemoveButtonClicked; 
+        public event Action<int> OnRemoveItem; 
 
         private void OnEnable()
         {
             foreach (ItemButton itemButton in _itemButtons)
             {
-                itemButton.OnRemoveClicked += RemoveItemClicked;
+                itemButton.OnRemoveClicked += RemoveItem;
             }
         }
 
@@ -23,7 +23,7 @@ namespace Inventory
         {
             foreach (ItemButton itemButton in _itemButtons)
             {
-                itemButton.OnRemoveClicked -= RemoveItemClicked;
+                itemButton.OnRemoveClicked -= RemoveItem;
             }        
         }
 
@@ -40,7 +40,7 @@ namespace Inventory
                     itemButton.ItemImage.gameObject.SetActive(true);
                     if (newGameItemInfo.Quantity > 1)
                     {
-                        itemButton.QuantityText.enabled = true;
+                        itemButton.QuantityText.gameObject.SetActive(true);
                     }
                     
                     break;
@@ -48,22 +48,27 @@ namespace Inventory
             }
         }
 
-        public void IncreaseItemQuantity(int itemId, int quantity)
+        public void ChangeItemQuantity(int itemId, int quantity)
         {
             foreach (ItemButton itemButton in _itemButtons)
             {
                 if (itemButton.Id == itemId)
                 {
+                    if (quantity <= 0)
+                    {
+                        RemoveItem(itemButton, itemId);
+                        break;
+                    }
                     itemButton.QuantityText.text = quantity.ToString();
                     itemButton.QuantityText.gameObject.SetActive(true);
                 }
             }
         }
 
-        private void RemoveItemClicked(ItemButton callingItemButton, int itemId)
+        private void RemoveItem(ItemButton callingItemButton, int itemId)
         {
             ClearButton(callingItemButton);
-            OnRemoveButtonClicked?.Invoke(itemId);
+            OnRemoveItem?.Invoke(itemId);
         }
 
         private void ClearButton(ItemButton callingItemButton)

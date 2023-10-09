@@ -19,3 +19,4 @@ MonoBehaviour:
   TimeBetweenShots: 0.2
   ShootTargetRadius: 6
   MaxShootingDistance: 6
+  BaseAmmoQuantity: 40

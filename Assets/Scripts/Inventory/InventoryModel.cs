@@ -1,42 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Inventory
 {
     public class InventoryModel
     {
         public event Action<GameItemInfo> OnItemAdded;
-        public event Action<int, int> OnItemQuantityIncreased;
+        public event Action<int, int> OnItemQuantityChanged;
 
-        public List<GameItemInfo> GameItemsInfo { get; } = new();
+        private readonly List<GameItemInfo> _gameItemsInfo = new();
 
         public void AddItem(GameItemInfo newGameItemInfo)
         {
-            foreach (GameItemInfo gameItemInfo in GameItemsInfo)
+            foreach (GameItemInfo gameItemInfo in _gameItemsInfo)
             {
                 if (gameItemInfo.Id == newGameItemInfo.Id)
                 {
                     gameItemInfo.Quantity += newGameItemInfo.Quantity;
-                    OnItemQuantityIncreased?.Invoke(newGameItemInfo.Id, gameItemInfo.Quantity);
+                    OnItemQuantityChanged?.Invoke(newGameItemInfo.Id, gameItemInfo.Quantity);
                     return;
                 }
             }
 
-            GameItemsInfo.Add(new GameItemInfo(newGameItemInfo.Id, newGameItemInfo.ItemName, newGameItemInfo.Quantity, newGameItemInfo.Icon));
+            _gameItemsInfo.Add(new GameItemInfo(newGameItemInfo.Id, newGameItemInfo.ItemName, newGameItemInfo.Quantity, newGameItemInfo.Icon));
             
             OnItemAdded?.Invoke(newGameItemInfo);
         }
 
         public void RemoveItem(int itemId)
         {
-            for (int i = GameItemsInfo.Count - 1; i >= 0; i--)
+            for (int i = 0; i < _gameItemsInfo.Count; i++)
             {
-                if (GameItemsInfo[i].Id == itemId)
+                if (_gameItemsInfo[i].Id == itemId)
                 {
-                    GameItemsInfo.RemoveAt(i);
+                    _gameItemsInfo.RemoveAt(i);
                 }
             }
+        }
+
+        public bool TryGetAmmo(int ammoId)
+        {
+            foreach (GameItemInfo gameItemInfo in _gameItemsInfo)
+            {
+                if (gameItemInfo.Id != ammoId)
+                {
+                    continue;
+                }
+                
+                gameItemInfo.Quantity--;
+                OnItemQuantityChanged?.Invoke(gameItemInfo.Id, gameItemInfo.Quantity);
+                return true;
+            }
+
+            return false;
         }
     }
 }

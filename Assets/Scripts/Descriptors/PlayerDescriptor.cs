@@ -13,5 +13,6 @@ namespace Descriptors
         public float TimeBetweenShots;
         public float ShootTargetRadius;
         public float MaxShootingDistance;
+        public int BaseAmmoQuantity;
     }
 }

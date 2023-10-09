@@ -22,6 +22,8 @@ namespace Services
         [Inject]
         private ItemsListDescriptor _itemsListDescriptor = null!;
         
+        private const int AMMO_ID = 0;
+
         public Player Player { get; private set; }
         
         public List<Enemy> Enemies { get; } = new();
@@ -30,7 +32,15 @@ namespace Services
         public void CreatePlayer()
         {
             Player = _assetProviderService.CreateAsset<Player>(_playerDescriptor.Prefab, _playerLocationDescriptor.InitialPlayerPositionPoint);
-            Player.Init(_playerDescriptor);
+            ItemDescriptor ammoItemDescriptor = null;
+            foreach (ItemDescriptor itemDescriptor in _itemsListDescriptor.Items)
+            {
+                if (itemDescriptor.Id == AMMO_ID)
+                {
+                    ammoItemDescriptor = itemDescriptor;
+                }
+            }
+            Player.Init(_playerDescriptor, ammoItemDescriptor);
         }
 
         public void CreateEnemies(List<Vector3> cellPositions)

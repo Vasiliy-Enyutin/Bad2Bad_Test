@@ -9,15 +9,18 @@ namespace PlayerLogic
         public float CurrentHp { get; private set; }
         
         public PlayerDescriptor PlayerDescriptor { get; private set; }
+
+        public ItemDescriptor AmmoItemDescriptor { get; private set; }
         
         public event Action OnDestroy;
 
         public event Action OnDamageReceived; 
 
-        public void Init(PlayerDescriptor playerDescriptor)
+        public void Init(PlayerDescriptor playerDescriptor, ItemDescriptor ammoItemDescriptor)
         {
             CurrentHp = playerDescriptor.Hp;
             PlayerDescriptor = playerDescriptor;
+            AmmoItemDescriptor = ammoItemDescriptor;
         }
         
         public void TakeDamage(float damage)

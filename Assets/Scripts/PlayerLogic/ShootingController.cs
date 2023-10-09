@@ -1,6 +1,7 @@
 using System.Collections;
 using Descriptors;
 using EnemyLogic;
+using Inventory;
 using Services;
 using UnityEngine;
 using Zenject;
@@ -9,6 +10,7 @@ namespace PlayerLogic
 {
     [RequireComponent(typeof(Player))]
     [RequireComponent(typeof(PlayerMovement))]
+    [RequireComponent(typeof(InventoryController))]
     public class ShootingController : MonoBehaviour
     {
         [SerializeField]
@@ -20,7 +22,8 @@ namespace PlayerLogic
         
         [Inject]
         private PlayerInputService _playerInputService = null!;
-        
+
+        private InventoryController _inventoryController = null!;
         private PlayerDescriptor _playerDescriptor = null!;
         private PlayerMovement _playerMovement = null!;
 
@@ -28,6 +31,7 @@ namespace PlayerLogic
 
         private void Start()
         {
+            _inventoryController = GetComponent<InventoryController>();
             _playerDescriptor = GetComponent<Player>().PlayerDescriptor;
             _playerMovement = GetComponent<PlayerMovement>();
         }
@@ -38,8 +42,11 @@ namespace PlayerLogic
 
             if (_playerInputService.IsFireButtonDown && _shotTimer >= _playerDescriptor.TimeBetweenShots)
             {
-                StartCoroutine(Shoot());
-                _shotTimer = 0f;
+                if (_inventoryController.TryGetAmmo())
+                {
+                    StartCoroutine(Shoot());
+                    _shotTimer = 0f;
+                }
             }
         }
 
