@@ -1,6 +1,4 @@
-﻿using System;
-using Descriptors;
-using PlayerLogic;
+﻿using PlayerLogic;
 using UnityEngine;
 
 namespace Inventory
