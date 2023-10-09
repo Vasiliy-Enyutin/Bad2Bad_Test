@@ -15,10 +15,10 @@ namespace PlayerLogic
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.TryGetComponent(out GameItem lootableItem))
+            if (col.TryGetComponent(out GameItem gameItem))
             {
-                _inventoryController.AddItem(lootableItem);
-                Destroy(lootableItem.gameObject);
+                _inventoryController.AddItem(gameItem.GameItemInfo);
+                Destroy(gameItem.gameObject);
             }
         }
     }

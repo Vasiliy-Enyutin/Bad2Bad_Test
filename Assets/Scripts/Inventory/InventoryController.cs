@@ -8,36 +8,45 @@ namespace Inventory
 
         private InventoryView _inventoryView;
 
+        private void Awake()
+        {
+            _inventoryView = FindObjectOfType<InventoryView>();
+        }
+
         private void OnEnable()
         {
             _inventoryModel.OnItemAdded += AddNewItemView;
             _inventoryModel.OnItemQuantityIncreased += IncreaseItemQuantityView;
+
+            _inventoryView.OnRemoveButtonClicked += RemoveItem;
         }
 
         private void OnDisable()
         {
             _inventoryModel.OnItemAdded -= AddNewItemView;
             _inventoryModel.OnItemQuantityIncreased -= IncreaseItemQuantityView;
+            
+            _inventoryView.OnRemoveButtonClicked -= RemoveItem;
         }
 
-        private void Start()
+        public void AddItem(GameItemInfo gameItemInfo)
         {
-            _inventoryView = FindObjectOfType<InventoryView>();
+            _inventoryModel.AddItem(gameItemInfo);
         }
 
-        public void AddItem(GameItem gameItem)
+        private void AddNewItemView(GameItemInfo gameItemInfo)
         {
-            _inventoryModel.AddItem(gameItem);
-        }
-
-        private void AddNewItemView(GameItem gameItem)
-        {
-            _inventoryView.AddItem(gameItem);
+            _inventoryView.AddItem(gameItemInfo);
         }
 
         private void IncreaseItemQuantityView(int itemId, int quantity)
         {
             _inventoryView.IncreaseItemQuantity(itemId, quantity);
+        }
+
+        private void RemoveItem(int itemId)
+        {
+            _inventoryModel.RemoveItem(itemId);
         }
     }
 }

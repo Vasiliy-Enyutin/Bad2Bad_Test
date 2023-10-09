@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ namespace Inventory
         [SerializeField]
         private TextMeshProUGUI _quantityText;
 
+        public event Action<ItemButton, int> OnRemoveClicked;
+        
         public int Id { get; set; } = -1;
 
         public Image ItemImage
@@ -35,10 +38,15 @@ namespace Inventory
 
         public void OnItemButtonClicked()
         {
-            if (_itemImage.enabled)
+            if (_itemImage.gameObject.activeSelf)
             {
-                _removeButton.enabled = true;
+                _removeButton.gameObject.SetActive(!_removeButton.gameObject.activeSelf);
             }
+        }
+
+        public void OnRemoveButtonClicked()
+        {
+            OnRemoveClicked?.Invoke(this, Id);
         }
     }
 }

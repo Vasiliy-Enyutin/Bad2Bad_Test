@@ -6,27 +6,47 @@ namespace Inventory
 {
     public class InventoryModel
     {
-        public event Action<GameItem> OnItemAdded;
+        public event Action<GameItemInfo> OnItemAdded;
         public event Action<int, int> OnItemQuantityIncreased;
 
-        public List<GameItem> GameItems { get; } = new();
+        public List<GameItemInfo> GameItemsInfo { get; } = new();
 
-        public void AddItem(GameItem newGameItem)
+        public void AddItem(GameItemInfo newGameItemInfo)
         {
-            foreach (GameItem gameItem in GameItems)
+            foreach (GameItemInfo gameItemInfo in GameItemsInfo)
             {
-                if (gameItem.Id == newGameItem.Id)
+                if (gameItemInfo.Id == newGameItemInfo.Id)
                 {
-                    gameItem.Quantity += newGameItem.Quantity;
-                    Debug.Log(gameItem.Quantity);
-                    Debug.Log("New game item quantity: " + newGameItem.Quantity);
-                    OnItemQuantityIncreased?.Invoke(newGameItem.Id, gameItem.Quantity);
+                    gameItemInfo.Quantity += newGameItemInfo.Quantity;
+                    OnItemQuantityIncreased?.Invoke(newGameItemInfo.Id, gameItemInfo.Quantity);
                     return;
                 }
             }
+
+            GameItemsInfo.Add(new GameItemInfo(newGameItemInfo.Id, newGameItemInfo.ItemName, newGameItemInfo.Quantity, newGameItemInfo.Icon));
             
-            GameItems.Add(newGameItem);
-            OnItemAdded?.Invoke(newGameItem);
+            OnItemAdded?.Invoke(newGameItemInfo);
+        }
+
+        public void RemoveItem(int itemId)
+        {
+            foreach (GameItemInfo gameItemInfo in GameItemsInfo)
+            {
+                Debug.Log(gameItemInfo.ItemName);
+            }
+            
+            for (int i = GameItemsInfo.Count - 1; i >= 0; i--)
+            {
+                if (GameItemsInfo[i].Id == itemId)
+                {
+                    GameItemsInfo.RemoveAt(i);
+                }
+            }
+            
+            foreach (GameItemInfo gameItemInfo in GameItemsInfo)
+            {
+                Debug.Log(gameItemInfo.ItemName);
+            }
         }
     }
 }

@@ -56,11 +56,8 @@ namespace EnemyLogic
             itemCollider.isTrigger = true;
 
             GameItem gameItem = lootableObject.AddComponent<GameItem>();
-
-            gameItem.Id = _itemDescriptor.Id;
-            gameItem.ItemName = _itemDescriptor.ItemName;
-            gameItem.Quantity = _itemDescriptor.Quantity;
-            gameItem.Icon = _itemDescriptor.Icon;
+            gameItem.GameItemInfo = new GameItemInfo(_itemDescriptor.Id, _itemDescriptor.ItemName,
+                _itemDescriptor.Quantity, _itemDescriptor.Icon);
         }
     }
 }

@@ -652,6 +652,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4495187576505158533}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
 --- !u!224 &58149513973860441 stripped
@@ -764,6 +776,18 @@ PrefabInstance:
     - target: {fileID: 2230858763978923211, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
       propertyPath: m_Name
       value: ItemButton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3708312067429156384}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
@@ -878,6 +902,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2733426784201044961}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
 --- !u!224 &1964588450867294269 stripped
@@ -990,6 +1026,18 @@ PrefabInstance:
     - target: {fileID: 2230858763978923211, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
       propertyPath: m_Name
       value: ItemButton (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1778327111612739888}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
@@ -1104,6 +1152,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemButton (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1850922881914450293}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
 --- !u!114 &1850922881914450293 stripped
@@ -1217,6 +1277,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemButton (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2151028962252746899}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
 --- !u!114 &2151028962252746899 stripped
@@ -1329,6 +1401,18 @@ PrefabInstance:
     - target: {fileID: 2230858763978923211, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
       propertyPath: m_Name
       value: ItemButton (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 149953581298174508}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
@@ -1557,6 +1641,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemButton (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8281161803202287793}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
 --- !u!224 &5494412628773509997 stripped
@@ -1669,6 +1765,18 @@ PrefabInstance:
     - target: {fileID: 2230858763978923211, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
       propertyPath: m_Name
       value: ItemButton (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6526456142826173755}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRemoveButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303416760603723628, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Inventory.ItemButton, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d466bae810aed4fb954d0fc970008a, type: 3}
