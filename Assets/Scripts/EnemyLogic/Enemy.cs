@@ -55,12 +55,12 @@ namespace EnemyLogic
             itemCollider.size = spriteSize;
             itemCollider.isTrigger = true;
 
-            LootableItem lootableItem = lootableObject.AddComponent<LootableItem>();
+            GameItem gameItem = lootableObject.AddComponent<GameItem>();
 
-            lootableItem.Id = _itemDescriptor.Id;
-            lootableItem.ItemName = _itemDescriptor.ItemName;
-            lootableItem.Quantity = _itemDescriptor.Quantity;
-            lootableItem.Icon = _itemDescriptor.Icon;
+            gameItem.Id = _itemDescriptor.Id;
+            gameItem.ItemName = _itemDescriptor.ItemName;
+            gameItem.Quantity = _itemDescriptor.Quantity;
+            gameItem.Icon = _itemDescriptor.Icon;
         }
     }
 }

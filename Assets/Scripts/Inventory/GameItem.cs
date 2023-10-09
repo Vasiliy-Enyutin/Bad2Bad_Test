@@ -2,7 +2,7 @@
 
 namespace Inventory
 {
-    public class LootableItem : MonoBehaviour
+    public class GameItem : MonoBehaviour
     {
         public int Id { get; set; }
         public string ItemName { get; set; }

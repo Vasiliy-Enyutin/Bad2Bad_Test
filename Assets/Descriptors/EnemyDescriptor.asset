@@ -17,4 +17,4 @@ MonoBehaviour:
   EnemiesNumber: 3
   TimeBetweenAttacks: 2
   TimeBeforeDamage: 0.5
-  Damage: 10
+  Damage: 20
