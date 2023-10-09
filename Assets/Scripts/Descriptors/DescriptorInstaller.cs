@@ -12,15 +12,15 @@ namespace Descriptors
         private PlayerLocationDescriptor _playerLocationDescriptor = null!;
         [SerializeField] 
         private EnemyDescriptor _enemyDescriptor;
-        // [SerializeField]
-        // private UiDescriptor _uiDescriptor;
+        [SerializeField]
+        private ItemsListDescriptor _itemsListDescriptor;
 		
         public override void InstallBindings()
         {
             Container.BindInstance(_playerDescriptor).AsSingle();
             Container.BindInstance(_playerLocationDescriptor).AsSingle();
             Container.BindInstance(_enemyDescriptor).AsSingle();
-            // Container.BindInstance(_uiDescriptor).AsSingle();
+            Container.BindInstance(_itemsListDescriptor).AsSingle();
         }
     }
 }

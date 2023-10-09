@@ -19,6 +19,8 @@ namespace Services
         private PlayerLocationDescriptor _playerLocationDescriptor = null!;
         [Inject]
         private EnemyDescriptor _enemyDescriptor = null!;
+        [Inject]
+        private ItemsListDescriptor _itemsListDescriptor = null!;
         
         public Player Player { get; private set; }
         
@@ -43,11 +45,14 @@ namespace Services
                 }
 
                 int randomIndex = Random.Range(0, availablePositions.Count);
-                Vector3 spawnPosition = availablePositions[randomIndex];
+                Vector3 spawnPosition = availablePositions[Random.Range(0, availablePositions.Count)];
                 availablePositions.RemoveAt(randomIndex);
 
                 Enemy enemy = _assetProviderService.CreateAsset<Enemy>(_enemyDescriptor.Enemy, spawnPosition);
-                enemy.Init(_enemyDescriptor);
+                
+                randomIndex = Random.Range(0, _itemsListDescriptor.Items.Length);
+                ItemDescriptor randomItem = _itemsListDescriptor.Items[randomIndex];
+                enemy.Init(_enemyDescriptor, randomItem);
                 Enemies.Add(enemy);
             }
         }
